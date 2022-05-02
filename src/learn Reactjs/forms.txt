@@ -1,0 +1,52 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import logo from './logo.svg';
+import './App.css';
+
+class LogIn extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { user: '', 
+                  password: '' };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+handleChange(event) {
+  const name = event.target.name;
+  this.setState({[name]: event.target.value});
+  console.log(event.target.value)
+}
+
+  handleSubmit(event) {
+    alert('userName was submitted: ' + this.state.user);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+      <li>
+       <ul> <label>
+          UserName:
+          <input type="text" name="user" value={this.state.user} onChange={this.handleChange} />
+        </label> </ul>
+        <ul> <label>
+          Password:
+          <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />          
+          </label> </ul>
+        </li>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+
+/*const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(<LogIn />); */
+
+ReactDOM.render(
+  <LogIn />,
+  document.getElementById('root')
+);

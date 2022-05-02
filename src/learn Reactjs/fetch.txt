@@ -1,0 +1,13 @@
+fetch('https://randomuser.me/api')
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw response;
+  })
+  .then(data => {
+    console.log(data);
+    // setData(data);
+  })
+  .catch(error => console.error("Error: ", error))
+  // .finally()

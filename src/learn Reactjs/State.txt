@@ -1,0 +1,34 @@
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+class Counter extends React.Component {
+      constructor(props){
+          super(props)
+          this.state = {"number": 1}
+          this.incr = this.incr.bind(this);
+      }
+
+      incr(){
+          this.setState((state) => ({"number": state.number + 1}));
+      } 
+
+      render(){
+          return (
+              <div>
+                  <h1>{this.state.number}</h1>
+                      <button onClick={this.incr}>Click to Update Counter</button>
+              </div>
+          );
+      }
+}
+
+function App() {
+  return (
+    <div>
+      <Counter />
+    </div>
+  );
+}
+
+export default App;

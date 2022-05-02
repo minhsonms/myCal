@@ -1,0 +1,29 @@
+import React from "react";
+import ReactDOM from "react-dom"
+const Clothes = (props) => {
+  console.log(props) //Giá trị của props
+  return (
+    <div>
+      <h1>{props.children}</h1>
+      <ul>
+          <li><b>Tên:</b> {props.name}</li>
+          <li><b>Loại:</b> {props.type}</li>
+          <li><b>Màu:</b>  {props.color}</li>
+          <li><b>Kích cỡ:</b>  {props.size}</li>
+      </ul>
+      <hr></hr>
+    </div>
+  );
+};
+function App(props) {
+  return (
+    <div>
+      <Clothes name="Quần jean" type="Skinny" color ="Đen" size = "L">Clothes 1</Clothes>
+      <Clothes name="Váy" type="váy công chúa" color ="Trắng" size = "M">Clothes 2</Clothes>
+    </div>
+  );
+}
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);
